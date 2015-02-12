@@ -80,18 +80,20 @@
       <div class="ui grid">
         <div class="eight wide column">
           <h2>{{title}}</h2>
+          <div id="book-info">
+            <strong>Genre: {{genre}}</strong>
+            <br>
+            <strong>Year:  {{year}}</strong>
+            <p>
+              <a {{bind-attr href=amazonLink}}>Buy {{title}}</a>
+            </p>
+          </div>
           <h3>
             By {{#link-to "authors.author" author}}
              {{author.name}}
              {{/link-to}}
             </h3>
-          <img {{bind-attr src=image}} alt="" />
-          <div id="book-info">
-            <strong>{{genre}} {{year}}</strong>
-            <p>
-              <a {{bind-attr href=amazonLink}}>Buy {{title}}</a>
-            </p>
-          </div>
+          <img {{bind-attr src=image}} alt="" width="300" />
         </div>
 
         <div class="eight wide column">
