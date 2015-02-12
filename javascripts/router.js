@@ -20,3 +20,9 @@ App.BooksRoute = Ember.Route.extend({
     return this.store.find('book');
   }
 });
+
+App.BookReviewRoute = Ember.Route.extend({
+  model: function() {
+    return this.store.find('review');
+  }
+});

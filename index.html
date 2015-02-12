@@ -23,7 +23,7 @@
 
     <script charset="utf-8" type="text/x-handlebars" id="authors">
       <div class="ui grid">
-        <div class="five wide column">
+        <div class="four wide column">
           {{#each author in model}}
           <p>
             {{#link-to "authors.author" author}}
@@ -54,10 +54,12 @@
 
     <script charset="utf-8" type="text/x-handlebars" id="books">
       <div class="ui grid">
-        <div class="five wide column">
+        <div class="four wide column">
           {{#each book in model}}
           <p>
-            {{book.title}}
+            {{#link-to "books.book" book}}
+              {{book.title}}
+            {{/link-to}}
           </p>
           {{/each}}
         </div>
@@ -65,6 +67,22 @@
         <div class="ten wide column">
           {{outlet}}
         </div>
+      </div>
+    </script>
+
+    <script charset="utf-8" type="text/x-handlebars" id="books/book">
+      <div class="ui grid">
+        <div class="six wide column">
+          <h2>{{title}}</h2>
+          <h3>By {{author.name}}</h3>
+          <img {{bind-attr src=image}} alt="" />
+          <div id="book info">
+            <strong>{{genre}} {{year}}</strong>
+            <a {{bind-attr href=amazonLink}}>Buy {{title}}</a>
+          </div>
+        </div>
+
+
       </div>
     </script>
 
@@ -78,6 +96,7 @@
     <script src="javascripts/router.js"></script>
     <script src="javascripts/models/author.js"></script>
     <script src="javascripts/models/book.js"></script>
+    <script src="javascripts/models/review.js"></script>
 
   </body>
 </html>
