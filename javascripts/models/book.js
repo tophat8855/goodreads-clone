@@ -1,3 +1,12 @@
+App.Book = DS.Model.extend({
+  title: DS.attr('string'),
+  image: DS.attr('string'),
+  amazonLink: DS.attr('string'),
+  genre: DS.attr('string'),
+  year: DS.attr('number'),
+  author: DS.belongsTo('author'),
+});
+
 App.Book.FIXTURES = [
   {
     id: 1,
