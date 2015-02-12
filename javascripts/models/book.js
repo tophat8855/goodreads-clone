@@ -5,7 +5,7 @@ App.Book = DS.Model.extend({
   genre: DS.attr('string'),
   year: DS.attr('number'),
   author: DS.belongsTo('author', {async: true}),
-  //reviews: DS.hasMany('review', {async: true}),
+  reviews: DS.hasMany('review', {async: true}),
 });
 
 App.Book.FIXTURES = [

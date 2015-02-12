@@ -4,7 +4,9 @@ App.Router.map(function() {
   });
 
   this.resource('books', function() {
-    this.route('book', {path: '/:book_id'});
+    this.resource('books.book', {path: '/:book_id'}, function() {
+     this.route('review', {path: '/:review_id'});
+    });
   });
 
 });

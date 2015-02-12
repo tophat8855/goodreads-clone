@@ -30,7 +30,7 @@
               {{author.name}}
             {{/link-to}}
           </p>
-          {{/each}}
+         {{/each}}
         </div>
 
         <div class="ten wide column">
@@ -46,8 +46,12 @@
         {{bio}}
       </div>
       <div id="book-list">
-        {{#each book in author.book}}
-          {{book.title}}
+        {{#each book in model.books}}
+        <p>
+          {{#link-to "books.book" book}}
+            {{book.title}}
+          {{/link-to}}
+        </p>
         {{/each}}
       </div>
     </script>
@@ -72,16 +76,34 @@
 
     <script charset="utf-8" type="text/x-handlebars" id="books/book">
       <div class="ui grid">
-        <div class="six wide column">
+        <div class="eight wide column">
           <h2>{{title}}</h2>
-          <h3>By {{author.name}}</h3>
+          <h3>
+            By {{#link-to "authors.author" author}}
+             {{author.name}}
+             {{/link-to}}
+            </h3>
           <img {{bind-attr src=image}} alt="" />
-          <div id="book info">
+          <div id="book-info">
             <strong>{{genre}} {{year}}</strong>
-            <a {{bind-attr href=amazonLink}}>Buy {{title}}</a>
+            <p>
+              <a {{bind-attr href=amazonLink}}>Buy {{title}}</a>
+            </p>
           </div>
         </div>
 
+        <div class="eight wide column">
+          <h2>Reviews</h2>
+          {{#each review in model.reviews}}
+          <p>
+            <h3>By {{review.userName}}</h3>
+            <div id="review-info">
+              <p>
+                {{review.text}}
+              </p>
+            </div>
+          </p>
+          {{/each}}        </div>
 
       </div>
     </script>
