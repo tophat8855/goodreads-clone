@@ -7,7 +7,8 @@
 
     <script charset="utf-8" type="text/x-handlebars">
       <h1>Goodreads Clone
-        {{#link-to 'authors'}} Authors {{/link-to}}
+
+        {{#link-to 'authors'}} Authors {{/link-to}} |
         {{#link-to 'books'}} Books {{/link-to}}
 
       </h1>
@@ -46,6 +47,7 @@
         {{bio}}
       </div>
       <div id="book-list">
+        <h3>Books:</h3>
         {{#each book in model.books}}
         <p>
           {{#link-to "books.book" book}}
